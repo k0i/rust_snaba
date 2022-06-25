@@ -48,22 +48,22 @@ where
     }
 }
 
-#[test]
-fn nominal_case_int() {
+#[cfg(test)]
+pub fn nominal_case_int() {
     test_add(1, 2);
     test_sub(3, 2);
     test_div(3, 6);
     test_mul(9, 5);
 }
 
-#[test]
-fn nominal_case_float() {
+#[cfg(test)]
+pub fn nominal_case_float() {
     test_add(1.4, 2.2);
     test_sub(3.5, 2.9);
     test_div(3.322, 6.7890);
     test_mul(9.34849, 5.6534);
 }
-
+#[cfg(test)]
 fn test_add<T>(lhs: T, rhs: T)
 where
     T: Mul<Output = T>
@@ -81,6 +81,7 @@ where
     assert_eq!(p.append("+").unwrap().unwrap(), lhs + rhs);
 }
 
+#[cfg(test)]
 fn test_sub<T>(lhs: T, rhs: T)
 where
     T: Mul<Output = T>
@@ -97,6 +98,7 @@ where
     let _ = p.append(rhs);
     assert_eq!(p.append("-").unwrap().unwrap(), lhs - rhs);
 }
+#[cfg(test)]
 fn test_div<T>(lhs: T, rhs: T)
 where
     T: Mul<Output = T>
@@ -113,6 +115,7 @@ where
     let _ = p.append(rhs);
     assert_eq!(p.append("/").unwrap().unwrap(), lhs / rhs);
 }
+#[cfg(test)]
 fn test_mul<T>(lhs: T, rhs: T)
 where
     T: Mul<Output = T>

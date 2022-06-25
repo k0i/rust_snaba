@@ -1,11 +1,9 @@
 [package]
-name = "snana"
+name = "rust_snaba"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "rust_snaba"
+path = "src/lib.rs"
 
-[dependencies]
-futures = "0.3.21"
-nix = "0.24.1"
-tokio = { version = "1.19.2", features = ["full"] }
